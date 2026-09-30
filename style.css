@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: antiquewhite;
+}
+.container {
+  text-align: center;
+  max-width: 600px;
+  height: 260px;
+  background-color: gray;
+  border: 2px solid black;
+  box-shadow: 6px 6px 6px;
+  border-radius: 8px;
+  color: white;
+}
+#myResult {
+  background-color: darkgray;
+}
+button {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  margin: 1px;
+}
+button:hover {
+  cursor: pointer;
+}
+.buttons {
+  padding: 0px 10px;
+  text-align: start;
+}
+.numbers {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+}
+.numbers:hover {
+  background: gray;
+}
+.operator {
+  background-color: yellow;
+  color: black;
+  border: 2px solid black;
+}
+.operator:hover {
+  background: orange;
+}

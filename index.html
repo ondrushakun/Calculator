@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator</h1>
+      <h1 class="myResult" id="myResult">0</h1>
+      <br />
+      <div class="buttons">
+        <button type="button" id="buttonPlus" class="operator" onclick="plus()">
+          +
+        </button>
+        <button type="button" id="buttonOne" class="numbers">1</button>
+        <button type="button" id="buttonTwo" class="numbers">2</button>
+        <button type="button" id="buttonThree" class="numbers">3</button><br />
+        <button
+          type="button"
+          id="buttonMinus"
+          class="operator"
+          onclick="minus()"
+        >
+          -
+        </button>
+        <button type="button" id="buttonFour" class="numbers">4</button>
+        <button type="button" id="buttonFive" class="numbers">5</button>
+        <button type="button" id="buttonSix" class="numbers">6</button><br />
+        <button
+          type="button"
+          id="buttonDivide"
+          class="operator"
+          onclick="divide()"
+        >
+          /
+        </button>
+        <button type="button" id="buttonSeven" class="numbers">7</button>
+        <button type="button" id="buttonEight" class="numbers">8</button>
+        <button type="button" id="buttonNine" class="numbers">9</button><br />
+        <button
+          type="button"
+          id="buttonMultiply"
+          class="operator"
+          onclick="multiply()"
+        >
+          *
+        </button>
+        <button type="button" id="buttonZero" class="numbers">0</button>
+        <button type="button" id="buttonDot" class="numbers">.</button>
+        <button type="button" id="buttonResult" class="numbers">=</button><br />
+        <button
+          type="button"
+          id="buttonClear"
+          class="operator"
+          onclick="clearCalculator()"
+        >
+          C
+        </button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
