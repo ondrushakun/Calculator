@@ -44,12 +44,14 @@ button:hover {
   text-align: start;
   padding: 0 10px 5px 10px;
 }
-.numbers {
+.numbers,
+.dot {
   background-color: black;
   color: white;
   border: 2px solid white;
 }
-.numbers:hover {
+.numbers:hover,
+.dot:hover {
   background: gray;
 }
 .operators {

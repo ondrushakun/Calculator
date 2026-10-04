@@ -1,17 +1,7 @@
 const buttonPlus = document.getElementById("buttonPlus");
-const buttonOne = document.getElementById("buttonOne");
-const buttonTwo = document.getElementById("buttonTwo");
-const buttonThree = document.getElementById("buttonThree");
 const buttonMinus = document.getElementById("buttonMinus");
-const buttonFour = document.getElementById("buttonFour");
-const buttonFive = document.getElementById("buttonFive");
-const buttonSix = document.getElementById("buttonSix");
 const buttonDivide = document.getElementById("buttonDivide");
-const buttonSeven = document.getElementById("buttonSeven");
-const buttonEight = document.getElementById("buttonEight");
-const buttonNine = document.getElementById("buttonNine");
 const buttonMultiply = document.getElementById("buttonMultiply");
-const buttonZero = document.getElementById("buttonZero");
 const buttonDot = document.getElementById("buttonDot");
 const buttonResult = document.getElementById("buttonResult");
 const buttonClear = document.getElementById("buttonClear");
@@ -26,66 +16,6 @@ function checkingForAZero() {
     myResult.textContent = " ";
   }
 }
-
-buttonZero.onclick = function () {
-  let temp = "";
-  if (myResult.textContent != "0") {
-    temp = myResult.textContent;
-    myResult.textContent = temp + buttonZero.value;
-  } else {
-    myResult.textContent = myResult.textContent;
-  }
-};
-buttonOne.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonOne.value;
-};
-buttonTwo.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonTwo.value;
-};
-buttonThree.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonThree.value;
-};
-buttonFour.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonFour.value;
-};
-buttonFive.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonFive.value;
-};
-buttonSix.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonSix.value;
-};
-buttonSeven.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonSeven.value;
-};
-buttonEight.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonEight.value;
-};
-buttonNine.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonNine.value;
-};
-buttonDot.onclick = function () {
-  checkingForAZero();
-  let temp = myResult.textContent;
-  myResult.textContent = temp + buttonDot.value;
-};
 
 buttonClear.onclick = function () {
   myResult.textContent = 0;
@@ -118,3 +48,19 @@ buttonResult.onclick = function () {
   myResult.textContent = String(secondNumber);
   secondNumber = 0;
 };
+buttonDot.onclick = function () {
+  if (myResult.textContent.includes(".")) {
+    return;
+  } else {
+    let temp = myResult.textContent;
+    myResult.textContent = temp + buttonDot.value;
+  }
+};
+function displayNumber(element) {
+  element.addEventListener("click", function () {
+    checkingForAZero();
+    let temp = myResult.textContent;
+    myResult.textContent = temp + element.value;
+  });
+}
+numbers.forEach(displayNumber);
