@@ -45,20 +45,24 @@ button:hover {
   padding: 0 10px 5px 10px;
 }
 .numbers,
-.dot {
+.dot,
+.buttonResult {
   background-color: black;
   color: white;
   border: 2px solid white;
 }
 .numbers:hover,
-.dot:hover {
+.dot:hover,
+.buttonResult:hover {
   background: gray;
 }
-.operators {
+.operators,
+.clear {
   background-color: yellow;
   color: black;
   border: 2px solid black;
 }
-.operators:hover {
+.operators:hover,
+.clear:hover {
   background: orange;
 }

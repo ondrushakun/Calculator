@@ -1,7 +1,3 @@
-const buttonPlus = document.getElementById("buttonPlus");
-const buttonMinus = document.getElementById("buttonMinus");
-const buttonDivide = document.getElementById("buttonDivide");
-const buttonMultiply = document.getElementById("buttonMultiply");
 const buttonDot = document.getElementById("buttonDot");
 const buttonResult = document.getElementById("buttonResult");
 const buttonClear = document.getElementById("buttonClear");
@@ -10,57 +6,79 @@ const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 let firstNumber = 0;
 let secondNumber = 0;
+let operator;
+let result = 0;
 
 function checkingForAZero() {
   if (myResult.textContent == "0") {
-    myResult.textContent = " ";
+    myResult.textContent = "";
+    return true;
   }
 }
-
-buttonClear.onclick = function () {
-  myResult.textContent = 0;
-};
-buttonPlus.onclick = function () {
-  firstNumber = Number(myResult.textContent);
-  secondNumber += firstNumber;
-  myResult.textContent = 0;
-  firstNumber = 0;
-};
-buttonMinus.onclick = function () {
-  firstNumber = myResult.textContent;
-  secondNumber -= firstNumber;
-  myResult.textContent = 0;
-  firstNumber = 0;
-};
-buttonMultiply.onclick = function () {
-  firstNumber = myResult.textContent;
-  secondNumber *= firstNumber;
-  myResult.textContent = 0;
-  firstNumber = 0;
-};
-buttonDivide.onclick = function () {
-  firstNumber = myResult.textContent;
-  secondNumber /= firstNumber;
-  myResult.textContent = 0;
-  firstNumber = 0;
-};
-buttonResult.onclick = function () {
-  myResult.textContent = String(secondNumber);
-  secondNumber = 0;
-};
-buttonDot.onclick = function () {
-  if (myResult.textContent.includes(".")) {
-    return;
-  } else {
-    let temp = myResult.textContent;
-    myResult.textContent = temp + buttonDot.value;
-  }
-};
-function displayNumber(element) {
-  element.addEventListener("click", function () {
+const displayNumber = (element) => {
+  element.addEventListener("click", () => {
     checkingForAZero();
     let temp = myResult.textContent;
     myResult.textContent = temp + element.value;
   });
-}
+};
+
+const usingOperator = (element) => {
+  element.addEventListener("click", () => {
+    firstNumber = Number(myResult.textContent);
+    myResult.textContent = 0;
+    operator = String(element.value);
+  });
+};
+
+buttonResult.onclick = function () {
+  if (!operator) {
+    return;
+  }
+  secondNumber = Number(myResult.textContent);
+  switch (operator) {
+    case "+":
+      result = firstNumber + secondNumber;
+      myResult.textContent = String(result);
+      operator = "";
+      break;
+    case "-":
+      result = firstNumber - secondNumber;
+      myResult.textContent = String(result);
+      operator = "";
+      break;
+    case "*":
+      result = firstNumber * secondNumber;
+      myResult.textContent = String(result);
+      operator = "";
+      break;
+    case "/":
+      if (secondNumber === 0) {
+        myResult.textContent = "ERROR";
+      } else {
+        result = firstNumber / secondNumber;
+        myResult.textContent = String(result);
+      }
+      operator = "";
+      break;
+  }
+};
+
+buttonClear.onclick = function () {
+  myResult.textContent = 0;
+  firstNumber = 0;
+  secondNumber = 0;
+  operator = "";
+  result = 0;
+};
+
+buttonDot.onclick = function () {
+  if (myResult.textContent.includes(".")) {
+    return;
+  }
+  let temp = myResult.textContent;
+  myResult.textContent = temp + buttonDot.value;
+};
+
 numbers.forEach(displayNumber);
+operators.forEach(usingOperator);
